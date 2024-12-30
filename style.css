@@ -1,0 +1,1014 @@
+/* Globale Stile (wie im Original beibehalten) */
+:root {
+    --primary-color: #007bff; /* Standardmäßig blau */
+}
+
+body, h1, h2, h3, ul, li, p, input, button, form, textarea, select {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body {
+    background-color: #f0f2f5; /* Hellgrauer Hintergrund */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    align-items: center; /* Zentriert den Login-Bereich horizontal */
+    justify-content: center; /* Zentriert den Login-Bereich vertikal */
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #eee;
+}
+
+/* Stile für den Login-Screen */
+#login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+body.dark-mode #login-container {
+    background-color: #444;
+    color: #eee;
+}
+
+#login-container h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+body.dark-mode #login-container h1 {
+    color: #bbb;
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;g
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+body.dark-mode .login-form label {
+    color: #eee;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .login-form input[type="text"],
+body.dark-mode .login-form input[type="password"] {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.login-form button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+.login-error {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Stile für den Zugang beantragen Screen */
+#request-access-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    display: block; /* Standardmäßig sichtbar, wird in login.html angepasst */
+}
+
+body.dark-mode #request-access-container {
+    background-color: #444;
+    color: #eee;
+}
+
+#request-access-container h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+body.dark-mode #request-access-container h2 {
+    color: #bbb;
+}
+
+.request-access-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.request-access-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: black; /* Verbesserung 3: Schrift schwarz */
+}
+
+body.dark-mode .request-access-form label {
+    color: white; /* Beibehaltung der weißen Farbe im Dark Mode */
+}
+
+.request-access-form input[type="text"],
+.request-access-form input[type="email"],
+.request-access-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .request-access-form input[type="text"],
+body.dark-mode .request-access-form input[type="email"],
+body.dark-mode .request-access-form input[type="tel"] {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.request-access-form input[type="text"]:focus,
+.request-access-form input[type="email"]:focus,
+.request-access-form input[type="tel"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.request-access-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.request-access-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .form-actions button {
+    color: #bbb;
+}
+
+.form-actions button:hover {
+    color: #0056b3;
+}
+
+body.dark-mode .form-actions button:hover {
+    color: #ddd;
+}
+
+/* Globale Stile für den Rest der App (anfänglich ausgeblendet) */
+header {
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dee2e6;
+    display: flex; /* Anfänglich ausgeblendet */
+    justify-content: space-between;
+    transition: background-color 0.3s ease; /* Übergang für Dark Mode */
+    width: 100%; /* Verbesserung 2: Ganze Bildschirmbreite */
+}
+
+body.dark-mode header {
+    background-color: #444;
+    color: #bbb;
+    border-bottom-color: #555;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 15px; /* Abstand zum nächsten Element */
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    flex-grow: 1; /* Verbesserung 2: Erlaubt das Wachsen, um Raum zu füllen */
+    justify-content: flex-end; /* Verbesserung 2: Elemente nach rechts ausrichten */
+}
+
+#customerSearch {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    width: 220px;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+    background-color: #fff;
+    color: #495057;
+    flex-grow: 1; /* Verbesserung 2: Suchleiste füllt verfügbaren Platz */
+    min-width: 0; /* Verhindert, dass die Suchleiste zu klein wird */
+}
+
+body.dark-mode #customerSearch {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+#customerSearch:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#add-customer-header-button {
+    padding: 8px 18px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#add-customer-header-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.settings-icon {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.settings-icon:hover {
+    color: #333;
+    transform: scale(1.1);
+}
+
+body.dark-mode .settings-icon {
+    color: #aaa;
+}
+
+body.dark-mode .settings-icon:hover {
+    color: #eee;
+}
+
+#customer-search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    z-index: 10;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode #customer-search-results {
+    background-color: #444;
+    border-color: #666;
+}
+
+#customer-search-results li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Übergang für Dark Mode */
+    font-size: 0.9rem;
+    color: #333;
+}
+
+body.dark-mode #customer-search-results li {
+    color: #eee;
+}
+
+#customer-search-results li:hover {
+    background-color: #f8f9fa;
+}
+
+body.dark-mode #customer-search-results li:hover {
+    background-color: #555;
+}
+
+main.content {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px; /* Breite der Sidebars angepasst */
+    gap: 20px;
+    width: 95%; /* Etwas Abstand vom Rand */
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 0;
+    display: none; /* Anfänglich ausgeblendet */
+}
+
+.sidebar {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .sidebar {
+    background-color: #444;
+    color: #eee;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.customer-detail-sidebar {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.order-number-sidebar {
+    background-color: #fff; /* Weiße Sidebar für Bestellnummern */
+    color: #333;
+}
+
+body.dark-mode .order-number-sidebar {
+    background-color: #444;
+    color: #eee;
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    color: inherit; /* Farbe vom übergeordneten Element erben */
+}
+
+.customer-detail-sidebar h2 {
+    color: white;
+}
+
+.order-number-sidebar h2 {
+    color: var(--primary-color);
+}
+
+body.dark-mode .order-number-sidebar h2 {
+    color: #bbb;
+}
+
+.main-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.customer-actions-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .customer-actions-section {
+    background-color: #444;
+    color: #eee;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.detail-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.claim-details-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .claim-details-section {
+    background-color: #444;
+    color: #eee;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    transition: color 0.3s ease, border-color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode h2, body.dark-mode h3 {
+    color: #bbb;
+    border-bottom-color: #555;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Punkt 5: Kompaktere Darstellung */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: white; /* Punkt 3: Weiße Schriftfarbe */
+    font-size: 0.8rem; /* Punkt 5: Kompaktere Darstellung */
+}
+
+.form-group label.request-label-black {
+    color: black; /* Verbesserung 3: Überschreibt die weiße Schrift für das Antragsformular */
+}
+
+body.dark-mode .form-group label {
+    color: #eee;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 8px 10px; /* Punkt 5: Kompaktere Darstellung */
+    border: 1px solid #ced4da;
+    border-radius: 100px; /* Punkt 4: Border-radius 100 */
+    font-size: 0.85rem; /* Punkt 5: Kompaktere Darstellung */
+    color: #495057;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+    background-color: #fff;
+}
+
+body.dark-mode .form-group input, body.dark-mode .form-group textarea, body.dark-mode .form-group select {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#documentation-text {
+    border: 1px solid #000; /* Immer schwarzer Rahmen */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+    background-color: #fff;
+    color: #495057;
+}
+
+body.dark-mode #documentation-text {
+    background-color: #555;
+    color: #ccc;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.navigation-buttons button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+body.dark-mode .navigation-buttons button {
+    background-color: #666;
+    color: #eee;
+    border-color: #888;
+}
+
+.navigation-buttons button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+body.dark-mode .navigation-buttons button:hover {
+    background-color: #777;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-buttons button {
+    padding: 8px 16px; /* Punkt 2: Subtileres Aussehen - Weniger Padding */
+    background-color: #66a3ff; /* Punkt 2: Subtileres Aussehen - Hellere Farbe */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #3385ff;
+    transform: scale(1.05);
+}
+
+.action-buttons button[type="submit"] {
+    background-color: #5cb85c; /* Punkt 2: Subtileres Aussehen - Hellere Farbe */
+}
+
+.action-buttons button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.action-buttons button[type="button"].delete {
+    background-color: #f0ad4e; /* Punkt 2: Subtileres Aussehen - Hellere Farbe */
+}
+
+.action-buttons button[type="button"].delete:hover {
+    background-color: #eea236;
+}
+
+.error {
+    color: #dc3545;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
+
+.claim-list, .documentation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.documentation-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    background-color: #fff; /* Weisse Felder */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Hilft bei der vertikalen Ausrichtung */
+    word-break: break-word; /* Textumbruch */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .documentation-item {
+    background-color: #555;
+    color: #eee;
+    border-bottom-color: #666;
+}
+
+.documentation-item:last-child {
+    border-bottom: none;
+}
+
+.claim-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    background-color: #fff; /* Weisse Felder */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .claim-item {
+    background-color: #555;
+    color: #eee;
+    border-bottom-color: #666;
+}
+
+.claim-item:last-child {
+    border-bottom: none;
+}
+
+.claim-item:hover {
+    background-color: #f1f1f1;
+}
+
+body.dark-mode .claim-item:hover {
+    background-color: #666;
+}
+
+#customerFilter {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+    background-color: #fff;
+    color: #495057;
+}
+
+body.dark-mode #customerFilter {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.order-number-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-number-item-container {
+    margin-bottom: 8px;
+}
+
+.order-number-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 25px;
+    background-color: #fff; /* Weisse Felder */
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    width: 100%; /* Volle Breite in der Sidebar */
+    box-sizing: border-box;
+}
+
+body.dark-mode .order-number-item {
+    background-color: #555;
+    color: #bbb;
+    border-color: #bbb;
+}
+
+.order-number-item:hover, .order-number-item.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+body.dark-mode .order-number-item:hover, body.dark-mode .order-number-item.selected {
+    background-color: #bbb;
+    color: #333;
+}
+
+.order-number-item button.delete-order-button {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.order-number-item:hover button.delete-order-button {
+    opacity: 1;
+}
+
+.customer-info-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.customer-info-row strong {
+    font-weight: bold;
+}
+
+.add-order-container {            display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.add-order-input {
+    padding: 8px 12px;
+    /* Anpassung für Punkt 3: Schwarzer Rand und graue Schrift */
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    width: 100%;
+    background-color: white; /* Sicherstellen, dass der Hintergrund weiß ist */
+    color: #888; /* Graue Schriftfarbe */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .add-order-input {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.add-order-input::placeholder {
+    color: #888; /* Graue Platzhalterfarbe */
+}
+
+#add-order-number-button {
+    padding: 8px 18px;
+    background-color: #fff;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #add-order-number-button {
+    background-color: #666;
+    color: #eee;
+}
+
+#add-order-number-button:hover {
+    background-color: #eee;
+    transform: scale(1.05);
+}
+
+body.dark-mode #add-order-number-button:hover {
+    background-color: #777;
+}
+
+#order-number-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.timestamp {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #777;
+    white-space: nowrap; /* Verhindert Zeilenumbruch im Zeitstempel */
+    transition: color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .timestamp {
+    color: #aaa;
+}
+
+/* Neue Stile für den Inline-Anliegen-Dialog */
+.inline-anliegen-dialog {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 100;
+    top: 100%; /* Positioniere es unter dem Button */
+    left: 0;
+    width: 300px; /* Breite des Dialogs anpassen */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+}
+
+body.dark-mode .inline-anliegen-dialog {
+    background-color: #444;
+    color: #eee;
+    border-color: #666;
+}
+
+.inline-anliegen-dialog.show {
+    display: block;
+}
+
+.inline-anliegen-dialog .form-group {
+    margin-bottom: 10px;
+}
+
+.inline-anliegen-dialog label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-mode .inline-anliegen-dialog label {
+    color: #eee;
+}
+
+.inline-anliegen-dialog select,
+.inline-anliegen-dialog textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
+    background-color: #fff;
+    color: #495057;
+}
+
+body.dark-mode .inline-anliegen-dialog select,
+body.dark-mode .inline-anliegen-dialog textarea {
+    background-color: #555;
+    color: #ccc;
+    border-color: #777;
+}
+
+.inline-anliegen-dialog .action-buttons {
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.inline-anliegen-dialog .action-buttons button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+/* Einstellungen Screen */
+#settings-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#settings-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+body.dark-mode #settings-content {
+    background-color: #333;
+    color: #eee;
+}
+
+.settings-group {
+    margin-bottom: 15px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.settings-group input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.settings-group input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.settings-group input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+}
+
+.settings-group input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 4px;
+}
+
+    /* Zusätzliche Stile für den Ausloggen-Button */
+    .logout-button {
+        background: none;
+        border: none;
+        color: inherit; /* Erbt die Farbe des Headers */
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 15px;
+        position: relative; /* Für die Tooltip-Positionierung */
+        transition: color 0.3s ease;
+    }
+
+    .logout-button:hover {
+        color: red;
+    }
+
+    .logout-button:hover .logout-tooltip {
+        visibility: visible;
+        opacity: 1;
+        top: 100%; /* Positioniere unterhalb des Buttons */
+    }
+
+    .logout-tooltip {
+        position: absolute;
+        z-index: 1;
+        bottom: -25px; /* Anpassen, um den Abstand zu justieren */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0s linear 0.3s, top 0.3s ease; /* Verzögerung für das Ausblenden */
+    }

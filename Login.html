@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCRAM CRM - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="login-container">
+        <h1>
+            <img src="https://i.imgur.com/Pdtug1f.png" alt="LUCRAM Logo" style="height: 30px; margin-right: 10px;">
+            LUCRAM CRM
+        </h1>
+        <form id="login-form" class="login-form">
+            <div class="form-group">
+                <label for="login-username">Benutzername</label>
+                <input type="text" id="login-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Passwort</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            <button type="submit">Einloggen</button>
+            <div id="login-error" class="login-error" style="display: none;">Falscher Benutzername oder Passwort.</div>
+        </form>
+        <div class="form-actions">
+            <button type="button" id="show-request-access">Zugang beantragen</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const usernameInput = document.getElementById('login-username').value;
+            const passwordInput = document.getElementById('login-password').value;
+            const loginError = document.getElementById('login-error');
+            const validUsername = 'Luca.cardazzone';
+            const validPassword = 'Test12345';
+
+            if (usernameInput === validUsername && passwordInput === validPassword) {
+                // Weiterleitung zum Ladescreen für den Main Screen
+                window.location.href = 'loading_main.html';
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+
+        document.getElementById('show-request-access').addEventListener('click', function() {
+            window.location.href = 'request_access.html';
+        });
+    </script>
+</body>
+</html>

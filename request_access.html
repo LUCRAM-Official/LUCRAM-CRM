@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCRAM CRM - Zugang beantragen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="request-access-container">
+        <h2>Zugang beantragen</h2>
+        <form id="request-access-form" class="request-access-form">
+            <div class="form-group">
+                <label for="request-vorname" class="request-label-black">Vorname</label>
+                <input type="text" id="request-vorname" name="vorname" required>
+            </div>
+            <div class="form-group">
+                <label for="request-nachname" class="request-label-black">Nachname</label>
+                <input type="text" id="request-nachname" name="nachname" required>
+            </div>
+            <div class="form-group">
+                <label for="request-email" class="request-label-black">E-Mail</label>
+                <input type="email" id="request-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="request-telefonnummer" class="request-label-black">Telefonnummer</label>
+                <input type="tel" id="request-telefonnummer" name="telefonnummer" required>
+            </div>
+            <button type="submit">Absenden</button>
+        </form>
+        <div class="form-actions">
+            <button type="button" id="back-to-login">Zurück zum Login</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('back-to-login').addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('request-access-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const vorname = document.getElementById('request-vorname').value;
+            const nachname = document.getElementById('request-nachname').value;
+            const email = document.getElementById('request-email').value;
+            const telefonnummer = document.getElementById('request-telefonnummer').value;
+            const adminEmail = 'luca.cardazzone@outlook.de';
+
+            const mailBody = `Hallo,\n\n${vorname} ${nachname} hat einen Zugang zu LUCRAM beantragt.\nDie Person ist unter folgenden Daten erreichbar:\n\n${email}\n${telefonnummer}\n\nVielen Dank.\n\nMit freundlichen Grüßen\n\nLUCRAM CRM Administrator.`;
+            const mailtoLink = `mailto:${adminEmail}?subject=Zugangsantrag%20LUCRAM&body=${encodeURIComponent(mailBody)}`;
+            window.location.href = mailtoLink;
+
+            alert('Ihr Antrag wurde gesendet.');
+            window.location.href = 'loading_login.html'; // Ladescreen für Login
+        });
+    </script>
+</body>
+</html>
