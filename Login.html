@@ -4,8 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUCRAM CRM - Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Optional: Externe CSS-Datei -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            background-size: cover; /* Einfacherer Hintergrund */
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #login-container {
+            background-color: white; /* Kein transparentes Weiß mehr */
+            padding: 40px;
+            border-radius: 10px; /* Etwas weniger abgerundet */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Weniger starker Schatten */
+            text-align: center;
+            width: 350px;
+        }
+
+        #login-container h1 {
+            margin-bottom: 30px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px; /* Weniger Padding */
+            border: 1px solid #ccc; /* Einfacherer Rahmen */
+            border-radius: 5px; /* Weniger abgerundet */
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #66afe9; /* Fokusfarbe */
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+            width: 100%;
+            padding: 10px; /* Weniger Padding */
+            border: none;
+            border-radius: 5px; /* Weniger abgerundet */
+            background-color: #3498db; /* Solide Farbe */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #2980b9;
+        }
+
+        #login-error {
+            color: #f44336;
+            margin-top: 15px;
+        }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            background: none;
+            color: #555;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .form-actions button:hover {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div id="login-container">
