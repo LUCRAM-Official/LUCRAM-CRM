@@ -413,12 +413,12 @@
             font-size: 0.85rem;
         }
 
-        .claim-list, .documentation-list, .email-log-list {
+        .claim-list, .documentation-list {
             list-style: none;
             padding: 0;
         }
 
-        .documentation-item, .email-log-item {
+        .documentation-item {
             padding: 12px 15px;
             border-bottom: 1px solid #f8f9fa;
             border-radius: 8px;
@@ -433,13 +433,13 @@
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Übergang für Dark Mode */
         }
 
-        body.dark-mode .documentation-item, body.dark-mode .email-log-item {
+        body.dark-mode .documentation-item {
             background-color: #555;
             color: #eee;
             border-bottom-color: #666;
         }
 
-        .documentation-item:last-child, .email-log-item:last-child {
+        .documentation-item:last-child {
             border-bottom: none;
         }
 
@@ -755,6 +755,10 @@
             cursor: pointer;
         }
 
+        .settings-group input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
         .settings-group input[type="color"]::-webkit-color-swatch {
             border: none;
             border-radius: 4px;
@@ -763,53 +767,6 @@
         .settings-group input[type="color"]::-moz-color-swatch {
             border: none;
             border-radius: 4px;
-        }
-
-        /* Style für den "E-Mail schreiben" Button */
-        .email-button {
-            background-color: #28a745; /* Grüne Farbe */
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .email-button:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-
-        /* Style für die E-Mail Log Liste */
-        .email-log-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-
-        .email-log-item {
-            padding: 10px 15px;
-            border-bottom: 1px solid #eee;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
-
-        body.dark-mode .email-log-item {
-            background-color: #555;
-            color: #eee;
-            border-bottom-color: #666;
-        }
-
-        .email-log-item strong {
-            font-weight: bold;
-            margin-right: 5px;
         }
     </style>
 </head>
@@ -825,7 +782,7 @@
         <ul id="customer-search-results"></ul>
         <button id="add-customer-header-button"><i class="fas fa-user-plus"></i> Kunde hinzufügen</button>
         <i class="fas fa-cog settings-icon" id="settings-button"></i>
-        <button class="logout-button" onclick="window.location.href='index.html'">
+        <button class="logout-button" onclick="window.location.href='Login.html'">
             <i class="fas fa-power-off"></i>
             <span class="logout-tooltip">Ausloggen</span>
         </button>
@@ -909,7 +866,6 @@
                 <div class="action-buttons">
                     <button type="submit"><i class="fas fa-save"></i> Speichern</button>
                     <button type="button" id="delete-customer" class="delete" style="display:none;"><i class="fas fa-trash"></i> Löschen</button>
-                    <button type="button" id="send-email" class="email-button"><i class="fas fa-envelope"></i> E-Mail schreiben</button>
                 </div>
             </form>
         </aside>
@@ -972,8 +928,6 @@
                     <br>
                     <h3>Protokoll</h3>
                     <ul id="documentation-list"></ul>
-                    <h3>E-Mail Verlauf</h3>
-                    <ul id="email-log-list"></ul>
                 </section>
             </div>
         </div>
@@ -1028,7 +982,6 @@
             const customerFormSidebar = document.getElementById('customer-form-sidebar');
             const customerIdInput = document.getElementById('customer-id');
             const deleteCustomerButton = document.getElementById('delete-customer');
-            const sendEmailButton = document.getElementById('send-email');
             const addAnliegenButton = document.getElementById('add-anliegen-button');
             const inlineNewAnliegenForm = document.getElementById('inline-new-anliegen-form');
             const anliegenKategorieSelect = document.getElementById('anliegen-kategorie');
@@ -1047,7 +1000,6 @@
             const anliegenCategorySpan = document.getElementById('anliegen-category');
             const anliegenDescriptionSpan = document.getElementById('anliegen-description');
             const documentationListElement = document.getElementById('documentation-list');
-            const emailLogListElement = document.getElementById('email-log-list');
             const documentationForm = document.getElementById('documentation-form');
             const documentationTextarea = document.getElementById('documentation-text');
 
@@ -1122,7 +1074,6 @@
                             renderCustomerDetails(customer);
                             renderOrderNumberList(customer);
                             renderAnliegenListForOrder(null); // Clear anliegen
-                            renderEmailLog(customer.id);
                             showCustomerDetails();
                             customerSearchResultsList.style.display = 'none';
                             customerSearchInput.value = '';
@@ -1289,23 +1240,6 @@
                 }
             };
 
-            const renderEmailLog = (customerId) => {
-                emailLogListElement.innerHTML = '';
-                const customer = customers.find(c => c.id === customerId);
-                if (customer && customer.emailLog) {
-                    customer.emailLog.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)).forEach(email => {
-                        const listItem = document.createElement('li');
-                        listItem.classList.add('email-log-item');
-                        listItem.innerHTML = `
-                            <p><strong>Betreff:</strong> ${email.subject}</p>
-                            <p><strong>Nachricht:</strong> ${email.body}</p>
-                            <span class="timestamp">${email.timestamp}</span>
-                        `;
-                        emailLogListElement.appendChild(listItem);
-                    });
-                }
-            };
-
             const saveCustomersToLocalStorage = () => {
                 localStorage.setItem('customers', JSON.stringify(customers));
             };
@@ -1387,7 +1321,7 @@
                     }
                 } else {
                     newCustomerId = Date.now().toString();
-                    const newCustomer = { id: newCustomerId, vorname, nachname, strasse, strassenNummer, telefonnummer, email, orderNumbers: [], anliegen: [], emailLog: [] };
+                    const newCustomer = { id: newCustomerId, vorname, nachname, strasse, strassenNummer, telefonnummer, email, orderNumbers: [], anliegen: [] };
                     customers.push(newCustomer);
                 }
 
@@ -1400,7 +1334,6 @@
                     renderCustomerDetails(newlyCreatedCustomer);
                     renderOrderNumberList(newlyCreatedCustomer);
                     renderAnliegenListForOrder(null);
-                    renderEmailLog(newlyCreatedCustomer.id);
                     showCustomerDetails();
                 }
             });
@@ -1412,35 +1345,6 @@
                     clearCustomerForm();
                     selectedCustomerId = null;
                     hideAllDetails();
-                }
-            });
-
-            sendEmailButton.addEventListener('click', () => {
-                if (selectedCustomerId) {
-                    const customer = customers.find(c => c.id === selectedCustomerId);
-                    if (customer) {
-                        const email = customer.email;
-                        const subject = 'Betreff Ihrer Anfrage'; // Vordefinierter Betreff
-                        const bodyText = ''; // Optional: Vordefinierter Nachrichtentext
-
-                        // Öffne das Standard-E-Mail-Programm des Benutzers
-                        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-
-                        // Protokolliere die E-Mail (dies geschieht, nachdem der Benutzer die E-Mail gesendet hat)
-                        const now = new Date();
-                        const timestamp = now.toLocaleString();
-                        const emailLogEntry = {
-                            subject: subject,
-                            body: 'E-Mail gesendet (Details im E-Mail-Programm)', // Da der Inhalt im Client ist
-                            timestamp: timestamp
-                        };
-                        if (!customer.emailLog) {
-                            customer.emailLog = [];
-                        }
-                        customer.emailLog.push(emailLogEntry);
-                        saveCustomersToLocalStorage();
-                        renderEmailLog(selectedCustomerId);
-                    }
                 }
             });
 
